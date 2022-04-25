@@ -93,10 +93,13 @@ class _MyHomePageState extends State<MyHomePage> {
             var localAuth = LocalAuthentication();
             bool didAuthenticate = await localAuth.authenticate(
                 localizedReason: 'Acesso ao aplicativo.',
-                androidAuthStrings:
-                    AndroidAuthMessages(biometricHint: 'Deseja vincular sua biometria?', signInTitle: 'Acesso biometrico')
+                androidAuthStrings: AndroidAuthMessages(
+                  biometricHint: 'Deseja vincular sua biometria?',
+                  signInTitle: 'Acesso biometrico',
+                )
                 // biometricOnly: true,
-                );
+                ,
+                iOSAuthStrings: IOSAuthMessages());
             if (didAuthenticate) {
               Navigator.push(
                   context,
